@@ -11,25 +11,39 @@ namespace Services.Common
         public void LoadDirectoryTree(string path)
         {
             List<FoldersAndFilesHirarchy> result = new List<FoldersAndFilesHirarchy>();
-            foreach (string file in Directory.GetFiles(path))
+            try
             {
-                foldersAndFilesHirarchies.Add(new FoldersAndFilesHirarchy
+                foreach (string file in Directory.GetFiles(path))
                 {
-                    Name = Path.GetFileName(file),
-                    FilePath = file,
-                    IsFolder = false
-                });
+                    foldersAndFilesHirarchies.Add(new FoldersAndFilesHirarchy
+                    {
+                        Name = Path.GetFileName(file),
+                        FilePath = file,
+                        IsFolder = false
+                    });
+                }
             }
+            catch (System.UnauthorizedAccessException)
+            { 
+                /// TODO : Log error
 
-            foreach (string folder in Directory.GetDirectories(path))
+            }
+            try
             {
-                foldersAndFilesHirarchies.Add(new FoldersAndFilesHirarchy
+                foreach (string folder in Directory.GetDirectories(path))
                 {
-                    Name = Path.GetFileName(folder),
-                    FilePath = folder,
-                    IsFolder = true
-                });
-                LoadDirectoryTree(folder);
+                    foldersAndFilesHirarchies.Add(new FoldersAndFilesHirarchy
+                    {
+                        Name = Path.GetFileName(folder),
+                        FilePath = folder,
+                        IsFolder = true
+                    });
+                    LoadDirectoryTree(folder);
+                }
+            }
+            catch(System.UnauthorizedAccessException)
+            {
+                /// TODO : Log error here
             }
         }
     }
