@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DesktopApp")]
+[assembly: AssemblyTitle("Services")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("KAS")]
-[assembly: AssemblyProduct("DesktopApp")]
+[assembly: AssemblyProduct("Services")]
 [assembly: AssemblyCopyright("Copyright © KAS 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("99235aa5-59a9-4b96-9246-617fe16b2d3d")]
+[assembly: Guid("163b5b55-e0f4-4c75-a010-58122de2c596")]
 
 // Version information for an assembly consists of the following four values:
 //
