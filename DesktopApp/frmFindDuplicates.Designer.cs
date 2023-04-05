@@ -36,6 +36,14 @@
             this.txtFilePath2 = new System.Windows.Forms.TextBox();
             this.btnCompare = new System.Windows.Forms.Button();
             this.lblResult = new System.Windows.Forms.Label();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.txtFolder1 = new System.Windows.Forms.TextBox();
+            this.txtFolder2 = new System.Windows.Forms.TextBox();
+            this.btnBrowsFolder2 = new System.Windows.Forms.Button();
+            this.btnBrowsFolder1 = new System.Windows.Forms.Button();
+            this.btnFolderCompare = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -93,17 +101,75 @@
             // lblResult
             // 
             this.lblResult.AutoSize = true;
-            this.lblResult.Location = new System.Drawing.Point(268, 136);
+            this.lblResult.Location = new System.Drawing.Point(363, 94);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(35, 13);
             this.lblResult.TabIndex = 5;
             this.lblResult.Text = "label1";
             // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(12, 200);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(357, 184);
+            this.checkedListBox1.TabIndex = 6;
+            // 
+            // txtFolder1
+            // 
+            this.txtFolder1.Location = new System.Drawing.Point(12, 142);
+            this.txtFolder1.Name = "txtFolder1";
+            this.txtFolder1.Size = new System.Drawing.Size(566, 20);
+            this.txtFolder1.TabIndex = 7;
+            // 
+            // txtFolder2
+            // 
+            this.txtFolder2.Location = new System.Drawing.Point(12, 168);
+            this.txtFolder2.Name = "txtFolder2";
+            this.txtFolder2.Size = new System.Drawing.Size(566, 20);
+            this.txtFolder2.TabIndex = 8;
+            // 
+            // btnBrowsFolder2
+            // 
+            this.btnBrowsFolder2.Location = new System.Drawing.Point(607, 168);
+            this.btnBrowsFolder2.Name = "btnBrowsFolder2";
+            this.btnBrowsFolder2.Size = new System.Drawing.Size(108, 23);
+            this.btnBrowsFolder2.TabIndex = 9;
+            this.btnBrowsFolder2.Text = "Brows Folder 2";
+            this.btnBrowsFolder2.UseVisualStyleBackColor = true;
+            this.btnBrowsFolder2.Click += new System.EventHandler(this.btnBrowsFolder2_Click);
+            // 
+            // btnBrowsFolder1
+            // 
+            this.btnBrowsFolder1.Location = new System.Drawing.Point(607, 139);
+            this.btnBrowsFolder1.Name = "btnBrowsFolder1";
+            this.btnBrowsFolder1.Size = new System.Drawing.Size(108, 23);
+            this.btnBrowsFolder1.TabIndex = 10;
+            this.btnBrowsFolder1.Text = "Brows Folder 1";
+            this.btnBrowsFolder1.UseVisualStyleBackColor = true;
+            this.btnBrowsFolder1.Click += new System.EventHandler(this.btnBrowsFolder1_Click);
+            // 
+            // btnFolderCompare
+            // 
+            this.btnFolderCompare.Location = new System.Drawing.Point(390, 200);
+            this.btnFolderCompare.Name = "btnFolderCompare";
+            this.btnFolderCompare.Size = new System.Drawing.Size(117, 23);
+            this.btnFolderCompare.TabIndex = 11;
+            this.btnFolderCompare.Text = "Compare Folders";
+            this.btnFolderCompare.UseVisualStyleBackColor = true;
+            this.btnFolderCompare.Click += new System.EventHandler(this.btnFolderCompare_Click);
+            // 
             // frmFindDuplicates
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(822, 524);
+            this.Controls.Add(this.btnFolderCompare);
+            this.Controls.Add(this.btnBrowsFolder1);
+            this.Controls.Add(this.btnBrowsFolder2);
+            this.Controls.Add(this.txtFolder2);
+            this.Controls.Add(this.txtFolder1);
+            this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.lblResult);
             this.Controls.Add(this.btnCompare);
             this.Controls.Add(this.txtFilePath2);
@@ -127,6 +193,14 @@
         private System.Windows.Forms.TextBox txtFilePath2;
         private System.Windows.Forms.Button btnCompare;
         private System.Windows.Forms.Label lblResult;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog2;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.TextBox txtFolder1;
+        private System.Windows.Forms.TextBox txtFolder2;
+        private System.Windows.Forms.Button btnBrowsFolder2;
+        private System.Windows.Forms.Button btnBrowsFolder1;
+        private System.Windows.Forms.Button btnFolderCompare;
     }
 }
 
