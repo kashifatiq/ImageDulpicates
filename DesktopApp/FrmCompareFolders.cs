@@ -4,6 +4,7 @@ using Services.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -15,6 +16,9 @@ namespace DesktopApp
 {
     public partial class FrmCompareFolders : Form
     {
+        private List<string> allowedFiles = new List<string>();
+        private List<string> ignoredFiles = new List<string>();
+
         public FrmCompareFolders()
         {
             InitializeComponent();
@@ -22,6 +26,7 @@ namespace DesktopApp
 
         private void btnBrowsFolder1_Click(object sender, EventArgs e)
         {
+            
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
                 txtFolder1.Text = folderBrowserDialog1.SelectedPath;
@@ -42,7 +47,10 @@ namespace DesktopApp
             folderOperations1.LoadDirectoryTree(txtFolder1.Text.Trim());
             foreach (FoldersAndFilesHirarchy result in folderOperations1.foldersAndFilesHirarchies)
             {
-                checkedListBox1.Items.Add(result.FilePath);
+                if (allowedFiles.Contains(result.FileType.ToLower()))
+                {
+                    checkedListBox1.Items.Add(result.FilePath);
+                }
             }
 
             FolderOperations folderOperations2 = new FolderOperations();
@@ -55,7 +63,13 @@ namespace DesktopApp
 
         private void frmFindDuplicates_Load(object sender, EventArgs e)
         {
+            var config = ConfigurationManager.AppSettings["AllowedFile"];
+            lblAllowedfiles.Text = lblAllowedfiles.Text + " " + config;
+            allowedFiles = config.Split(',').ToList();
 
+            var config2 = ConfigurationManager.AppSettings["IgnoredFiles"];
+            lblFilesIgnored.Text = lblFilesIgnored.Text + " " + config2;
+            ignoredFiles = config2.Split(',').ToList();
         }
     }
 }

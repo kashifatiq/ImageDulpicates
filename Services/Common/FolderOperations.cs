@@ -15,11 +15,13 @@ namespace Services.Common
             {
                 foreach (string file in Directory.GetFiles(path))
                 {
+                    FileInfo fileInfo = new FileInfo(file);
                     foldersAndFilesHirarchies.Add(new FoldersAndFilesHirarchy
                     {
                         Name = Path.GetFileName(file),
                         FilePath = file,
-                        IsFolder = false
+                        IsFolder = false,
+                        FileType = fileInfo.Extension
                     });
                 }
             }
